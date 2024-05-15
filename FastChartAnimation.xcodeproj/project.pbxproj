@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA560D912BF5070F0057157D /* SwiftUIViewRecorder in Frameworks */ = {isa = PBXBuildFile; productRef = EA560D902BF5070F0057157D /* SwiftUIViewRecorder */; };
 		EA7637FA2BF3D3FF002CF8C1 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7637F92BF3D3FF002CF8C1 /* Device.swift */; };
 		EA7637FC2BF3D429002CF8C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7637FB2BF3D429002CF8C1 /* SettingsView.swift */; };
 		EA7FFC462BF3A4D200374100 /* FastChartAnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7FFC452BF3A4D200374100 /* FastChartAnimationApp.swift */; };
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA560D912BF5070F0057157D /* SwiftUIViewRecorder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,9 @@
 			dependencies = (
 			);
 			name = FastChartAnimation;
+			packageProductDependencies = (
+				EA560D902BF5070F0057157D /* SwiftUIViewRecorder */,
+			);
 			productName = FastChartAnimation;
 			productReference = EA7FFC422BF3A4D200374100 /* FastChartAnimation.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +124,9 @@
 				Base,
 			);
 			mainGroup = EA7FFC392BF3A4D200374100;
+			packageReferences = (
+				EA560D8F2BF5070F0057157D /* XCRemoteSwiftPackageReference "SwiftUIViewRecorder" */,
+			);
 			productRefGroup = EA7FFC432BF3A4D200374100 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -295,8 +303,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarkView.FastChartAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -322,8 +333,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarkView.FastChartAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -349,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EA560D8F2BF5070F0057157D /* XCRemoteSwiftPackageReference "SwiftUIViewRecorder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/frolovilya/SwiftUIViewRecorder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EA560D902BF5070F0057157D /* SwiftUIViewRecorder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA560D8F2BF5070F0057157D /* XCRemoteSwiftPackageReference "SwiftUIViewRecorder" */;
+			productName = SwiftUIViewRecorder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EA7FFC3A2BF3A4D200374100 /* Project object */;
 }
