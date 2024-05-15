@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIViewRecorder
 
 let demoDevices: [Device] = [
     Device(chip: "Apple M4", name: "iPad Pro 13 inch", score: 67, colors: [.green, .teal, .blue]),
@@ -37,13 +38,20 @@ iPad 电量 50% 以上。
     
     @State private var isShowingSettingsView = false
     
-    init(devices: [Device]) {
-        self.devices = demoDevices
-        
-        for device in devices {
-            self.deviceScores[device] = 0
-            self.deviceAnimations[device] = false
-        }
+    @ObservedObject var recordingViewModel: ViewRecordingSessionViewModel<URL>
+    
+//    init(devices: [Device]) {
+//        self.devices = demoDevices
+//        
+//        for device in devices {
+//            self.deviceScores[device] = 0
+//            self.deviceAnimations[device] = false
+//        }
+//    }
+    
+    init(devices: [Device], recordingViewModel: ViewRecordingSessionViewModel<URL>) {
+        self.devices = devices
+        self.recordingViewModel = recordingViewModel
     }
     
     var body: some View {
@@ -91,28 +99,61 @@ iPad 电量 50% 以上。
                     }
                 }
                 
-                Button("Settings") {
-                    if !isShowingSettingsView {
-                        isShowingSettingsView = true
-                        
-                        let newWindow = NSWindow(
-                            contentRect: NSRect(x: 0, y: 0, width: 300, height: 400),
-                            styleMask: [.titled, .closable, .resizable],
-                            backing: .buffered, defer: true)
-                        
-                        newWindow.center()
-                        newWindow.setFrameAutosaveName("Settings")
-                        newWindow.contentView = NSHostingView(rootView: SettingsView(closeAction: {
-                            isShowingSettingsView = false
-                        }))
-                        newWindow.makeKeyAndOrderFront(nil)
-                        newWindow.isReleasedWhenClosed = false
+//                Button("Settings") {
+//                    if !isShowingSettingsView {
+//                        isShowingSettingsView = true
+//                        
+//                        let newWindow = NSWindow(
+//                            contentRect: NSRect(x: 0, y: 0, width: 300, height: 400),
+//                            styleMask: [.titled, .closable, .resizable],
+//                            backing: .buffered, defer: true)
+//                        
+//                        newWindow.center()
+//                        newWindow.setFrameAutosaveName("Settings")
+//                        newWindow.contentView = NSHostingView(rootView: SettingsView(closeAction: {
+//                            isShowingSettingsView = false
+//                        }))
+//                        newWindow.makeKeyAndOrderFront(nil)
+//                        newWindow.isReleasedWhenClosed = false
+//                    }
+//                    
+//                    // TODO: Shift the focus to the Settings window when it's been created.
+//                }
+                
+                NavigationLink("Settings") {
+                    SettingsView(closeAction: { })
+                }
+                
+                Button("Export") {
+                    recordingViewModel.handleRecording(session: try! AnimatedChartView.recordVideo())
+                }
+                
+                ZStack {
+                    if (recordingViewModel.asset != nil) {
+                        Text("Video URL \(recordingViewModel.asset!)")
+                    } else {
+                        Text("Recording video...")
                     }
-                    
-                    // TODO: Shift the focus to the Settings window when it's been created.
                 }
             }
             
+            AnimatedChartView
+            
+            Spacer()
+        }
+        .frame(width: 960, height: 540)
+        .padding()
+        .onAppear() {
+            for device in devices {
+                if device.score > highestScore {
+                    self.highestScore = device.score
+                }
+            }
+        }
+    }
+    
+    var AnimatedChartView: some View {
+        return Group {
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
                     Text(chartTitle)
@@ -123,7 +164,7 @@ iPad 电量 50% 以上。
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
-                    
+                
                 Text(chartFootnote)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
@@ -164,17 +205,6 @@ iPad 电量 50% 以上。
                     .opacity(deviceAnimations[device] ?? false ? 1 : 0)
                 }
             }
-            
-            Spacer()
-        }
-        .frame(width: 960, height: 540)
-        .padding()
-        .onAppear() {
-            for device in devices {
-                if device.score > highestScore {
-                    self.highestScore = device.score
-                }
-            }
         }
     }
 }
@@ -189,5 +219,5 @@ struct Line: Shape {
 }
 
 #Preview {
-    ContentView(devices: demoDevices)
+    ContentView(devices: demoDevices, recordingViewModel: ViewRecordingSessionViewModel<URL>())
 }
