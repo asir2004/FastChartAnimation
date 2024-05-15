@@ -1,0 +1,24 @@
+{
+  "originHash" : "156df4d8faeab0b3c8feb7210e0b2f95c8636df5da6e29f20743ebc1aac9ade2",
+  "pins" : [
+    {
+      "identity" : "swiftuiviewrecorder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/frolovilya/SwiftUIViewRecorder.git",
+      "state" : {
+        "revision" : "c9a33f27f3bd959789f3a88123309f77236e171e",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "uiimageextensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/frolovilya/UIImageExtensions.git",
+      "state" : {
+        "revision" : "21c0dea5f6bdd0dd2ab40488b2b5da302c842838",
+        "version" : "0.2.0"
+      }
+    }
+  ],
+  "version" : 3
+}
