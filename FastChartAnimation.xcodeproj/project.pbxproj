@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA1055EB2BF72C0300B72738 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1055EA2BF72C0300B72738 /* LineShape.swift */; };
+		EA1055ED2BF72C4800B72738 /* AnimatedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1055EC2BF72C4800B72738 /* AnimatedChartView.swift */; };
 		EA560D912BF5070F0057157D /* SwiftUIViewRecorder in Frameworks */ = {isa = PBXBuildFile; productRef = EA560D902BF5070F0057157D /* SwiftUIViewRecorder */; };
 		EA7637FA2BF3D3FF002CF8C1 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7637F92BF3D3FF002CF8C1 /* Device.swift */; };
 		EA7637FC2BF3D429002CF8C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7637FB2BF3D429002CF8C1 /* SettingsView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA1055EA2BF72C0300B72738 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		EA1055EC2BF72C4800B72738 /* AnimatedChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedChartView.swift; sourceTree = "<group>"; };
 		EA7637F92BF3D3FF002CF8C1 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		EA7637FB2BF3D429002CF8C1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EA7FFC422BF3A4D200374100 /* FastChartAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastChartAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +64,8 @@
 			children = (
 				EA7FFC452BF3A4D200374100 /* FastChartAnimationApp.swift */,
 				EA7FFC472BF3A4D200374100 /* ContentView.swift */,
+				EA1055EC2BF72C4800B72738 /* AnimatedChartView.swift */,
+				EA1055EA2BF72C0300B72738 /* LineShape.swift */,
 				EA7637FB2BF3D429002CF8C1 /* SettingsView.swift */,
 				EA7637F92BF3D3FF002CF8C1 /* Device.swift */,
 				EA7FFC492BF3A4D300374100 /* Assets.xcassets */,
@@ -154,8 +160,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA7637FA2BF3D3FF002CF8C1 /* Device.swift in Sources */,
+				EA1055EB2BF72C0300B72738 /* LineShape.swift in Sources */,
 				EA7637FC2BF3D429002CF8C1 /* SettingsView.swift in Sources */,
 				EA7FFC482BF3A4D200374100 /* ContentView.swift in Sources */,
+				EA1055ED2BF72C4800B72738 /* AnimatedChartView.swift in Sources */,
 				EA7FFC462BF3A4D200374100 /* FastChartAnimationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,11 +311,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarkView.FastChartAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -333,11 +340,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarkView.FastChartAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

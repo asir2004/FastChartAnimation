@@ -12,7 +12,7 @@ import SwiftUIViewRecorder
 struct FastChartAnimationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(devices: demoDevices, recordingViewModel: ViewRecordingSessionViewModel<URL>())
+            ContentView()
         }
     }
 }

@@ -20,7 +20,9 @@ iPad 电量 50% 以上。
     
     @AppStorage("autoHighestScore") var autoHighestScore: Bool = true
     @AppStorage("frameWidth") var frameWidth: Double = 960
+    @AppStorage("frameHeight") var frameHeight: Double = 540
     @State private var frameWidthInput: String = "0"
+    @State private var frameHeightInput: String = "0"
     
     @AppStorage("animationType") var animationType: String = "bouncy"
     @AppStorage("animationDuration") var animationDuration: Double = 0.7
@@ -58,6 +60,21 @@ iPad 电量 50% 以上。
                             }
                             .onAppear() {
                                 frameWidthInput = String(frameWidth.formatted())
+                            }
+                    }
+                    
+                    HStack {
+                        Label("Frame Height", systemImage: "arrow.up.and.down")
+                            .foregroundStyle(.primary)
+                        
+                        Spacer()
+                        
+                        TextField("Frame Height", text: $frameHeightInput)
+                            .onChange(of: frameHeightInput) {
+                                frameHeight = Double(frameHeightInput) ?? 0
+                            }
+                            .onAppear() {
+                                frameHeightInput = String(frameHeight.formatted())
                             }
                     }
                 }
